@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>게시글 수정</div>
+<form th:action="@{/update}" th:object="${board}" method="post">
+    <input type="hidden" name="id" th:value="${id}"/>
+    <div>
+        <label>이름:</label>
+        <input type="text" th:field="*{name}"/>
+        <span th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">이름 에러</span>
+    </div>
+    <div>
+        <label>제목:</label>
+        <input type="text" th:field="*{title}" />
+        <span th:if="${#fields.hasErrors('title')}"
+              th:errors="*{title}">제목 에러</span>
+    </div>
+    <div>
+        <label>암호:</label>
+        <input type="password" th:field="*{password}" />
+        <span th:if="${#fields.hasErrors('password')}"
+              th:errors="*{password}">암호 에러</span>
+    </div>
+    <div>
+        <label>내용:</label>
+        <textarea id="content" th:field="*{content}" rows="10" cols="60"
+                  placeholder="내용을 입력하세요"></textarea>
+        <span th:if="${#fields.hasErrors('content')}"
+              th:errors="*{content}">내용 에러</span>
+    </div>
+
+    <button type="submit">등록</button>
+</form>
+</body>
+</html>

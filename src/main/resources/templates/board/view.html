@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <div th:text="${board.title}">게시글 제목</div>
+    <div>
+        <div th:text="${board.name}">작성자</div>
+        <div th:text="${board.createdAt}">등록일</div>
+        <div th:text="${board.updatedAt}">수정일</div>
+    </div>
+    <div th:text="${board.content}"> 내용</div>
+</div>
+
+<a href="/list">목록으로 돌아가기</a>
+<a th:href="@{/updateform(id=${board.id})}">수정하기</a>
+<a th:href="@{/deleteform(id=${board.id})}">삭제하기</a>
+
+
+</body>
+</html>

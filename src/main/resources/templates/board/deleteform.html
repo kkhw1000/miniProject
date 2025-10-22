@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/delete}" method="post">
+    <input type="hidden" name="id" th:value="${id}" />
+    <p>정말로 이 게시글을 삭제하시겠습니까?</p>
+    <div>
+        <label>암호:</label>
+        <input type="password" name="password" th:value="${password}" required/>
+    </div>
+    <div class="error" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+    <div class="actions">
+        <button type="submit" class="delete">삭제</button>
+        <button type="button" class="cancel" onclick="history.back()">취소</button>
+    </div>
+</form>
+</body>
+</html>
